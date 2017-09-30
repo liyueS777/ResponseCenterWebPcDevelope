@@ -1,0 +1,121 @@
+/*图表的盒子样式；*/
+.mailInfoDiv {
+    position: absolute;
+    width: 390px;
+    height: 240px;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #2e567d !important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    background-color: #2e567d !important;
+    z-index: 99;
+    display: block;
+    border-radius: 12px;
+    padding: 30px 20px 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    .echartsClose {
+        cursor: pointer;
+        position: absolute;
+        top: -14px;
+        right: -10px;
+        z-index: 2000;
+        font-size: 30px;
+        color: white;
+    }
+    .mailInfoBox {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;   
+        box-sizing: border-box;  
+        display: flex;
+        .mail-photo{
+          width: 100px;
+          height: 100%;
+          padding-top: 20px;
+          box-sizing: border-box;
+          img{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+          }
+        }
+        .mail-info{
+          flex:1;
+          padding-left: 20px;
+          box-sizing: border-box;
+          color: #e6e6e6;
+          text-align: left;
+          
+          li{
+            height: 40px;
+            line-height: 40px;
+          }
+          label, span{
+            user-select: none;
+          }
+          label{
+            display: inline-block;
+            width: 50px;
+          }
+        }
+    }
+
+}
+
+
+@media screen and (max-width:440px) {
+  .mailInfoDiv{
+    width: 330px;
+    height: 238px;
+    padding: 20px 10px 10px;
+    .mailInfoBox{
+      .mail-photo{
+        width: 70px;
+        img{
+          width: 70px;
+          height: 70px;
+        }
+      }
+      .mail-info{
+          padding-left: 10px;
+          box-sizing: border-box;
+          color: white;
+          text-align: left;
+          label{
+            display: inline-block;
+            width: 45px;
+          }
+        }
+    }
+  }
+}
+
+@media screen and (max-width:325px) {
+  .mailInfoDiv{
+    width: 300px;
+    height: 200px;
+
+    .mailInfoBox{
+      .mail-photo{
+        width: 60px;
+        img{
+          width: 60px;
+          height: 60px;
+        }
+      }
+      .mail-info{
+          padding-left: 10px;
+          box-sizing: border-box;
+          color: white;
+          text-align: left;
+          label{
+            display: inline-block;
+            width: 40px;
+          }
+        }
+    }
+  }
+}

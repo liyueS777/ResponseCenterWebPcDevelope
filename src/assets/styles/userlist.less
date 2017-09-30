@@ -1,0 +1,65 @@
+.userList-wrapper{
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    right: 10%;
+    background: rgb(57, 61, 64);
+    width: 150px;
+    height: 300px;
+    z-index: 14;
+    display: flex;
+    flex-direction: column;
+    transform: translateZ(120px);
+    &.ins{
+        height: 168px;
+        top:40%;
+        li:last-child{
+            border:0
+        }
+    }
+}
+.title-top{
+    height:45px;
+    line-height:45px;
+    background-color: rgb(45, 45, 45);
+    padding:0 5px 0 15px;
+    color:#ccc;
+    i{
+        float: right;
+        cursor:pointer;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+.user-list{
+    flex: 1;
+    overflow: auto;
+    color: white;
+    li{
+        height: 40px;
+        line-height: 40px;
+        padding: 0 15px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eaeaea;
+        cursor: pointer;
+        user-select: none;
+        &.nomenber{
+            border-bottom:0;
+            color:#a7a7a7;
+        }
+        &:hover{
+            background-color: rgba(45, 45, 45, 0.8);
+        }
+        &.selected{
+            color: black;
+            background: white;
+        }
+    }
+}
+@media screen and (max-width:470px) {
+   .userList-wrapper{
+       right: 0;
+       top: 40%;
+       height:280px;
+   }
+}

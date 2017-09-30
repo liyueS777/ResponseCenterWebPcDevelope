@@ -1,0 +1,350 @@
+.IMchat-wrapper{
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  margin: auto;
+  z-index: 10000;
+  border: 1px solid #eaeaea;
+  background: white;
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  transform: translateZ(120px); /*解决苹果手机上3D transform变换z-index失效导致转盘图标在消息框上显示的bug*/
+  .chat-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    z-index: 1000000;
+    cursor: pointer;
+  }
+  &{
+    @media (min-width:737px){
+      width: 35%;
+      height: 47%;
+      box-sizing: border-box;
+    }
+    @media (max-width:736px){
+      width: calc(100%-3px);
+      height: 50%;
+      margin: 0 5px 5px 5px;
+      border-radius: 5px;
+    }
+  }
+}
+
+.chat-list{
+  flex: 1;
+  overflow-y: auto;
+  li{
+    width: 100%;
+    padding: 5px 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    position:relative;
+    .screenall{
+      position: absolute;
+      background: #272f37;
+      right: 5px;
+      bottom: 4px;
+      width: 23px;
+      color: #fff;
+      padding-top: 3px;
+      height: 23px;
+      border-radius: 3px;
+      box-sizing: border-box;
+      text-align: center;
+      cursor: pointer;
+      .iconfont{
+         font-size: 18px; 
+      }
+    }
+    span.tiptime{
+      font-size: 12px;
+      display: block;
+      text-align: center;
+      margin:10px 0 5px;
+    }
+    &.news{
+      padding-top:20px;
+      &:before{
+        content:'------ 以下为最新消息 ------';
+        position: absolute;
+        top: 0;
+        font-size: 12px;
+        left: 50%;
+        width: 138px;
+        text-align: center;
+        margin-left: -67px;
+      }
+    }
+    img{
+      width: 40px;
+      height: 40px;
+      user-select: none;
+      -webkit-user-drag: none;
+      float: left;
+    }
+    .talkinfo{
+      max-width: calc(~"100% - 110px");
+      box-sizing: border-box;
+      float: left;
+      h3{
+        font-size: 14px;
+        font-weight: normal;
+        margin-bottom: 5px;
+      }
+      .time{
+        padding: 0 6px;
+        font-size: 12px;
+        color: #999;
+      }
+      .msg-wrap{
+        font-size: 13px;
+      }
+      .msg{
+          background-color: #E8E8E8;
+          white-space: pre-wrap;
+          border-radius: 4px;
+          word-break: break-all;
+          padding: 6px 15px 2px;
+          line-height: 18px;
+          font-size: 13px;
+          box-sizing: border-box;
+          position: relative;
+      }
+    }
+  }
+  .otherTalk{
+    .talkinfo{
+      text-align: left;
+      padding-left: 20px;
+      padding-right: 50px;
+      .msg:before{
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-right: 14px solid #E8E8E8;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        left: -14px;
+        top: 3px;
+        content: ' ';
+      }
+    }
+  }
+  .myTalk{
+    img{
+      float: right;
+    }
+    .talkinfo{
+      padding-right: 20px;
+      padding-left: 50px;
+      text-align: left;
+      float: right;
+      h3{
+        text-align: right;
+      }
+      .msg:after{
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-left: 14px solid #E8E8E8;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          right: -14px;
+          top: 3px;
+          content: ' ';
+      }
+    }
+  }
+  img.preImg{
+      float: none;
+      width: 150px;
+      height: auto;
+      margin: 7px 0;
+  }
+  .fj{
+    a{
+      color: #292929;
+      text-decoration: underline;
+    }
+    span{
+      display: inline-block;
+      width: 35px;
+      height: 41px;
+      line-height: 40px;
+      vertical-align: middle;
+    }
+  }
+}
+.enter-center{
+  border: 1px solid #eaeaea;
+  box-sizing: border-box;
+  padding: 5px 0;
+  display: flex;
+  .talkWrite{
+    width : calc(~"100% - 80px");
+    min-height: 40px;
+    max-height: 178px;
+    overflow: auto;
+    resize: none;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+    padding: 6px;
+    line-height: 28px;
+    text-align: left;
+  }
+  .talkWrite::-webkit-scrollbar  
+  {  
+      width: 0px;  
+      height: 0px;  
+      background-color: white;  
+  }  
+  .btnSend{
+    width: 80px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #E8E8E8;
+    cursor: pointer;
+    outline: none;
+  }
+}
+@media (max-width:440px){
+  .chat-list{
+    li{
+      .talkinfo{
+         max-width: calc(~"100% - 70px");
+      }
+    }
+  }
+}
+
+// 客服聊天
+.IMchat-wrapper.guestchat{
+    padding-top: 5px;
+    button{
+        color: #333;
+        width: 44px;
+        margin-right: 1px;
+        box-sizing: border-box;
+        cursor: pointer;
+        .iconfont{
+            font-size:20px;
+        }
+        &:hover{
+            background: #757575;
+            color: #fff;
+        }
+    }
+    .iconfont{
+        font-size:28px;
+    }
+}
+
+.serlist{
+    height: 35px;
+    text-align: left;
+    line-height: 30px;
+    padding:0 10px;
+    border-bottom: 1px solid #eaeaea;
+    .btn-ck{
+        float: right;
+        margin-right: 30px;
+        cursor:pointer;
+        position:relative;
+        &.hasnew{
+            &:before{
+                content:'';
+                position:absolute;
+                top:0;
+                background:#ff0000;
+                border-radius:100px;
+                width:10px;
+                height:10px;
+                border: 1px solid #fff;
+                right:0;
+            }
+        }
+    }
+    
+    .user-sattus{
+        &.title{
+            font-size: 18px;
+        }
+        &:before{
+            display: inline-block;
+            content: '';
+            border-radius: 100px;
+            height: 12px;
+            width: 12px;
+            vertical-align: middle;
+            margin-right: 7px;
+        }
+        &.title:before{
+            height: 18px;
+            width: 18px;
+        }
+        &.offline:before{
+            background: #d0d0d0;
+        }
+        &.online:before{
+            background: #26c188;
+        }
+    }
+    .serlist-detail{
+        position: absolute;
+        right: 5px;
+        width: 120px;
+        border: 1px solid #ddd;
+        background: #fff;
+        top: 40px;
+        border-radius: 3px;
+        font-size: 14px;
+        background: #272f37;
+        color: #fff;
+        font-size: 14px;
+        line-height: 30px;
+        z-index:999;
+        max-height: 180px;
+        overflow: auto;
+        &:before{
+            content:'';
+            position:absolute;
+            border:4px 0 0 0;
+
+        }
+        li{
+            cursor:pointer;
+            padding:0 10px;
+            height: 30px;
+            overflow: hidden;
+            &:hover{
+                background: #8c9aa9;
+                color: #272f37;
+            }
+            &.selected{
+                background: #687786;
+                color: #fff;
+            }
+            &.newMsg{
+                color:#fff;
+                font-weight:bold
+            }
+        }
+    }
+}
+@media (min-width: 737px){
+    .IMchat-wrapper.guestchat{
+        width: 39%;
+        height: 56%;
+    }
+}
+
+
+
+
+
+
